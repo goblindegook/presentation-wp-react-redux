@@ -1,0 +1,5 @@
+dispatch({
+  type:    'SEARCH_SUCCESS',
+  error:   false,
+  payload: '...',
+});

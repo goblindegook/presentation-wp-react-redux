@@ -21,6 +21,8 @@ import {
   Text,
 } from 'spectacle';
 
+import CodeSlide from 'spectacle-code-slide';
+
 // Import image preloader util
 import preloader from 'spectacle/lib/utils/preloader';
 
@@ -126,18 +128,58 @@ export default class Presentation extends React.Component {
 
           <Slide>
             <Heading size={1} fit>
-              Components trigger
+              Components dispatch
             </Heading>
             <Heading size={2} caps fit>
               Actions
             </Heading>
             <Heading size={1} fit>
-              Functions that return data.
+              which are objects with a name and payload.
             </Heading>
           </Slide>
 
-          <Slide>
-            <Text>TODO: Action Example</Text>
+          <Slide bgColor='secondary'>
+            <Heading size={5} textColor='primary' caps margin='0 auto 4rem'>
+              Standard Actions
+            </Heading>
+            <Layout>
+              <Fill>
+                <CodePane
+                  lang='js'
+                  source={require('raw!../assets/action-success.example')}
+                  style={style.codePane}
+                />
+              </Fill>
+              <Fill>
+                <CodePane
+                  lang='js'
+                  source={require('raw!../assets/action-error.example')}
+                  style={style.codePane}
+                />
+              </Fill>
+            </Layout>
+          </Slide>
+
+          <Slide bgColor='secondary'>
+            <Heading size={5} textColor='primary' caps margin='0 auto 4rem'>
+              Action Creators
+            </Heading>
+            <Layout>
+              <Fill>
+                <CodePane
+                  lang='js'
+                  source={require('raw!../assets/action-creator-success.example')}
+                  style={style.codePane}
+                />
+              </Fill>
+              <Fill>
+                <CodePane
+                  lang='js'
+                  source={require('raw!../assets/action-creator-error.example')}
+                  style={style.codePane}
+                />
+              </Fill>
+            </Layout>
           </Slide>
 
           <Slide>
@@ -152,12 +194,28 @@ export default class Presentation extends React.Component {
               Thunks
             </Heading>
             <Heading size={1} fit>
-              Functions that trigger other actions.
+              A simple middleware that dispatches actions.
             </Heading>
           </Slide>
 
           <Slide>
             <Text>TODO: Thunk Example</Text>
+          </Slide>
+
+          <Slide>
+            <Heading size={1} fit>
+              Asynchronous behaviour also achieved with
+            </Heading>
+            <Heading size={2} caps fit>
+              Sagas
+            </Heading>
+            <Heading size={1} fit>
+              A middleware that dispatches <u>and orchestrates</u> actions.
+            </Heading>
+          </Slide>
+
+          <Slide>
+            <Text>TODO: Saga Example</Text>
           </Slide>
 
           <Slide>
@@ -190,7 +248,7 @@ export default class Presentation extends React.Component {
 
           <Slide>
             <Heading size={1} fit>
-              Store object is passed to your
+              Store is passed to your
             </Heading>
             <Heading size={2} caps fit>
               Components
@@ -292,15 +350,6 @@ export default class Presentation extends React.Component {
           </Slide>
 
           {/*
-
-          <Slide bgColor='secondary'>
-            <CodePane
-              lang='jsx'
-              source={require('raw!../assets/deck.example')}
-              margin='20px auto'
-              style={style.codePane}
-            />
-          </Slide>
 
           <Slide bgImage={images.city} bgDarken={0.50}>
             <Appear fid='1'>

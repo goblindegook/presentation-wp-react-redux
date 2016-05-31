@@ -1,0 +1,9 @@
+function searchSuccess(results) {
+  return {
+    type:    'SEARCH_SUCCESS',
+    error:   false,
+    payload: results,
+  };
+}
+
+dispatch(searchSuccess({...}));
