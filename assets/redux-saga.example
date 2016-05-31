@@ -6,7 +6,7 @@ const wp = new WP({ endpoint: '...' });
 
 export function* searchSagaWorker(action) {
     try {
-      const results = yield call(wp.posts().search, action.payload);
+      const results = yield call(wp.posts().search, action.payload.query);
       yield put({ type: SEARCH_SUCCESS, payload: results });
     } catch (error) {
       yield put({ type: SEARCH_ERROR, payload: error, error: true });
@@ -15,8 +15,8 @@ export function* searchSagaWorker(action) {
 }
 
 function* searchSaga() {
-  yield* takeLatest('SEARCH_REQUEST', searchSagaWorker);
+  yield* takeLatest(SEARCH_REQUEST, searchSagaWorker);
 }
 
 // COMPONENTS BE LIKE:
-dispatch({ type: 'SEARCH_REQUEST', payload: 'foo' });
+dispatch({ type: SEARCH_REQUEST, payload: { query: 'foo' } });

@@ -1,6 +1,6 @@
 function searchSuccess(results) {
   return {
-    type:    'SEARCH_SUCCESS',
+    type:    SEARCH_SUCCESS,
     error:   false,
     payload: results,
   };
