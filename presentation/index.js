@@ -293,6 +293,18 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide>
+            <Heading size={4} caps>
+              Reducers
+            </Heading>
+            <List>
+              <ListItem>Multiple reducers allowed (and encouraged)</ListItem>
+              <ListItem>Each reducer handles a different branch of app state</ListItem>
+              <ListItem>A <u>new</u> state object is created on update</ListItem>
+              <ListItem>This matters because <u>determinism</u></ListItem>
+            </List>
+          </Slide>
+
+          <Slide>
             <Heading size={1} fit>
               Application state exists in a
             </Heading>
@@ -302,6 +314,18 @@ export default class Presentation extends React.Component {
             <Heading size={1} fit>
               which is the single source of truth.
             </Heading>
+          </Slide>
+
+          <Slide>
+            <Heading size={4} caps>
+              Store
+            </Heading>
+            <List>
+              <ListItem>Holds application state</ListItem>
+              <ListItem>Anyone can read state and subscribe to updates</ListItem>
+              <ListItem>Can only be updated by dispatching actions</ListItem>
+              <ListItem>There is <u>only one</u> store</ListItem>
+            </List>
           </Slide>
 
           <Slide>
