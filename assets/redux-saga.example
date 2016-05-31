@@ -1,0 +1,22 @@
+import { takeLatest } from 'redux-saga';
+import { call, put } from 'redux-saga/effects';
+import WP from 'wordpress-rest-api';
+
+const wp = new WP({ endpoint: '...' });
+
+export function* searchSagaWorker(action) {
+    try {
+      const results = yield call(wp.posts().search, action.payload);
+      yield put({ type: SEARCH_SUCCESS, payload: results });
+    } catch (error) {
+      yield put({ type: SEARCH_ERROR, payload: error, error: true });
+    }
+  }
+}
+
+function* searchSaga() {
+  yield* takeLatest('SEARCH_REQUEST', searchSagaWorker);
+}
+
+// COMPONENTS BE LIKE:
+dispatch({ type: 'SEARCH_REQUEST', payload: 'foo' });

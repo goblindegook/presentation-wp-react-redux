@@ -1,0 +1,18 @@
+import WP from 'wordpress-rest-api';
+
+const wp = new WP({ endpoint: '...' });
+
+export function searchThunk(query) {
+  return async function (dispatch) {
+    try {
+      dispatch({ type: SEARCH_REQUEST, payload: query });
+      const results = await wp.posts().search(query);
+      dispatch({ type: SEARCH_SUCCESS, payload: results });
+    } catch (error) {
+      dispatch({ type: SEARCH_ERROR, payload: error, error: true });
+    }
+  };
+}
+
+// COMPONENTS BE LIKE:
+dispatch(searchThunk('foo'));

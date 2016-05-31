@@ -21,8 +21,6 @@ import {
   Text,
 } from 'spectacle';
 
-import CodeSlide from 'spectacle-code-slide';
-
 // Import image preloader util
 import preloader from 'spectacle/lib/utils/preloader';
 
@@ -59,6 +57,10 @@ const theme = createTheme({
 const style = {
   codePane: {
     backgroundColor: '#333',
+    display:         'inline-block',
+    margin:          '0 auto',
+    maxWidth:        'inherit',
+    minWidth:        'inherit',
   },
 };
 
@@ -139,7 +141,7 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide bgColor='secondary'>
-            <Heading size={5} textColor='primary' caps margin='0 auto 4rem'>
+            <Heading size={5} textColor='primary' caps margin='0 auto 3rem'>
               Standard Actions
             </Heading>
             <Layout>
@@ -148,6 +150,7 @@ export default class Presentation extends React.Component {
                   lang='js'
                   source={require('raw!../assets/action-success.example')}
                   style={style.codePane}
+                  textSize='1rem'
                 />
               </Fill>
               <Fill>
@@ -155,13 +158,14 @@ export default class Presentation extends React.Component {
                   lang='js'
                   source={require('raw!../assets/action-error.example')}
                   style={style.codePane}
+                  textSize='1rem'
                 />
               </Fill>
             </Layout>
           </Slide>
 
           <Slide bgColor='secondary'>
-            <Heading size={5} textColor='primary' caps margin='0 auto 4rem'>
+            <Heading size={5} textColor='primary' caps margin='0 auto 3rem'>
               Action Creators
             </Heading>
             <Layout>
@@ -170,6 +174,7 @@ export default class Presentation extends React.Component {
                   lang='js'
                   source={require('raw!../assets/action-creator-success.example')}
                   style={style.codePane}
+                  textSize='1rem'
                 />
               </Fill>
               <Fill>
@@ -177,6 +182,7 @@ export default class Presentation extends React.Component {
                   lang='js'
                   source={require('raw!../assets/action-creator-error.example')}
                   style={style.codePane}
+                  textSize='1rem'
                 />
               </Fill>
             </Layout>
@@ -198,8 +204,28 @@ export default class Presentation extends React.Component {
             </Heading>
           </Slide>
 
+          <Slide bgColor='secondary'>
+            <Heading size={5} textColor='primary' caps margin='0 auto 3rem'>
+              Example Thunk
+            </Heading>
+            <CodePane
+              lang='js'
+              source={require('raw!../assets/redux-thunk.example')}
+              style={style.codePane}
+              textSize='1rem'
+            />
+          </Slide>
+
           <Slide>
-            <Text>TODO: Thunk Example</Text>
+            <Heading size={4} caps>
+              Thunks
+            </Heading>
+            <List>
+              <ListItem>Simple</ListItem>
+              <ListItem>Imperative approach</ListItem>
+              <ListItem>Components dispatch actions or thunks</ListItem>
+              <ListItem>No way to cancel side effects</ListItem>                  
+            </List>
           </Slide>
 
           <Slide>
@@ -214,8 +240,28 @@ export default class Presentation extends React.Component {
             </Heading>
           </Slide>
 
+          <Slide bgColor='secondary'>
+            <Heading size={5} textColor='primary' caps margin='0 auto 3rem'>
+              Example Saga
+            </Heading>
+            <CodePane
+              lang='js'
+              source={require('raw!../assets/redux-saga.example')}
+              style={style.codePane}
+              textSize='1rem'
+            />
+          </Slide>
+
           <Slide>
-            <Text>TODO: Saga Example</Text>
+            <Heading size={4} caps>
+              Sagas
+            </Heading>
+            <List>
+              <ListItem>Rely on generators</ListItem>
+              <ListItem>Declarative approach</ListItem>
+              <ListItem>Components only dispatch actions</ListItem>                  
+              <ListItem>Side effect orchestration</ListItem>
+            </List>
           </Slide>
 
           <Slide>
@@ -341,7 +387,7 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide>
-            <Heading size={1} textSize='4rem' caps margin='0 auto 4rem' textColor='tertiary'>
+            <Heading size={1} textSize='3rem' caps margin='0 auto 3rem' textColor='tertiary'>
               Thank You
             </Heading>
             <Text size={1} textSize='1em'>

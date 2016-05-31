@@ -6,4 +6,4 @@ function searchSuccess(results) {
   };
 }
 
-dispatch(searchSuccess({...}));
+dispatch(searchSuccess([...]));
