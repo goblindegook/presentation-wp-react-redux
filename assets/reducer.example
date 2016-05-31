@@ -1,0 +1,17 @@
+const initialState = { isLoading: false, query: '', results: [] };
+
+function searchReducer(state = initialState, action) {
+  switch (action.type) {
+    case 'SEARCH_REQUEST':
+      return Object.assign({}, state, { isLoading: true, query: action.payload.query });
+
+    case 'SEARCH_SUCCESS':
+      return Object.assign({}, state, { isLoading: false, results: action.payload });
+
+    case 'SEARCH_ERROR':
+      return Object.assign({}, state, { isLoading: false, results: [] });
+
+    default:
+      return state;
+  }
+}

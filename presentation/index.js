@@ -109,6 +109,10 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide>
+            <Text>TODO: Component Lifecycle</Text>
+          </Slide>
+
+          <Slide>
             <Text>TODO: React components are roughly equivalent to views</Text>
           </Slide>
 
@@ -136,7 +140,7 @@ export default class Presentation extends React.Component {
               Actions
             </Heading>
             <Heading size={1} fit>
-              which are objects with a name and payload.
+              which are objects with a type and payload.
             </Heading>
           </Slide>
 
@@ -276,8 +280,16 @@ export default class Presentation extends React.Component {
             </Heading>
           </Slide>
 
-          <Slide>
-            <Text>TODO: Reducer Example</Text>
+          <Slide bgColor='secondary'>
+            <Heading size={5} textColor='primary' caps margin='0 auto 3rem'>
+              Example Reducer
+            </Heading>
+            <CodePane
+              lang='js'
+              source={require('raw!../assets/reducer.example')}
+              style={style.codePane}
+              textSize='1rem'
+            />
           </Slide>
 
           <Slide>
@@ -333,8 +345,31 @@ export default class Presentation extends React.Component {
             </Heading>
           </Slide>
 
-          <Slide>
-            <Text>TODO: Immutable.js example</Text>
+          <Slide bgColor='secondary'>
+            <Layout>
+              <Fill>
+                <Heading size={5} textColor='primary' caps margin='0 auto 3rem'>
+                  Before
+                </Heading>
+                <CodePane
+                  lang='js'
+                  source={require('raw!../assets/immutable-before.example')}
+                  style={style.codePane}
+                  textSize='1rem'
+                />
+              </Fill>
+              <Fill>
+                <Heading size={5} textColor='primary' caps margin='0 auto 3rem'>
+                  After
+                </Heading>
+                <CodePane
+                  lang='js'
+                  source={require('raw!../assets/immutable-after.example')}
+                  style={style.codePane}
+                  textSize='1rem'
+                />
+              </Fill>
+            </Layout>
           </Slide>
 
           <Slide>
@@ -346,12 +381,7 @@ export default class Presentation extends React.Component {
               <Appear><ListItem>Concurrent data access</ListItem></Appear>
               <Appear><ListItem>Unexpected changes</ListItem></Appear>
               <Appear><ListItem>Inconsistent application state</ListItem></Appear>
-              <Appear><ListItem>Indeterminate application state</ListItem></Appear>
             </List>
-          </Slide>
-
-          <Slide>
-            <Text>And if application state is deterministic, that means...</Text>
           </Slide>
 
           <Slide>

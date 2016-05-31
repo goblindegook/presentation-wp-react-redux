@@ -1,9 +1,9 @@
-function searchSuccess(results) {
+function searchSuccessAction(results) {
   return {
-    type:    SEARCH_SUCCESS,
-    error:   false,
+    type:    'SEARCH_SUCCESS',
     payload: results,
+    error:   false,
   };
 }
 
-dispatch(searchSuccess([...]));
+dispatch(searchSuccessAction([...]));

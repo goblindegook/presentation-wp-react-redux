@@ -1,9 +1,9 @@
-function searchError(error) {
+function searchErrorAction(error) {
   return {
-    type:    SEARCH_ERROR,
-    error:   true,
+    type:    'SEARCH_ERROR',
     payload: error,
+    error:   true,
   };
 }
 
-dispatch(searchError({...}));
+dispatch(searchErrorAction({...}));

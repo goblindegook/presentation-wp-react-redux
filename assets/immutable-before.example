@@ -1,0 +1,12 @@
+import React from 'react';
+import deepEqual from 'deep-equal';
+
+const MyComponent = React.createClass({
+  shouldComponentUpdate(nextProps, nextState) {
+    // With big state objects, performing
+    // deep comparisons will slow you down:
+    return deepEqual(this.props, nextProps);
+  },
+
+  ...
+});

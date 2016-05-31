@@ -1,5 +1,5 @@
 dispatch({
-  type:    SEARCH_SUCCESS,
-  error:   false,
+  type:    'SEARCH_SUCCESS',
   payload: [...],
+  error:   false,
 });
