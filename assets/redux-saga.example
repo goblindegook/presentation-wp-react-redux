@@ -7,7 +7,7 @@ const wp = new WP({...});
 export function* searchSagaWorker(action) {
     try {
       const results = yield call(wp.posts().search, action.payload.query);
-      yield put({ type: 'SEARCH_SUCCESS', payload: results });
+      yield put({ type: 'SEARCH_SUCCESS', payload: { results } });
     } catch (error) {
       yield put({ type: 'SEARCH_ERROR', payload: error, error: true });
     }

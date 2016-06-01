@@ -323,6 +323,7 @@ export default class Presentation extends React.Component {
             <List>
               <ListItem>Holds application state</ListItem>
               <ListItem>Anyone can read state and subscribe to updates</ListItem>
+              <ListItem>Middleware integrates with the store</ListItem>
               <ListItem>Can only be updated by dispatching actions</ListItem>
               <ListItem>There is <u>only one</u> store</ListItem>
             </List>

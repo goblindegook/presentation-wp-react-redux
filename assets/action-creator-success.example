@@ -1,7 +1,7 @@
 function searchSuccessAction(results) {
   return {
     type:    'SEARCH_SUCCESS',
-    payload: results,
+    payload: { results },
     error:   false,
   };
 }
