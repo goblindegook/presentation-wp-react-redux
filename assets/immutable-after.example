@@ -1,11 +1,11 @@
 import React from 'react';
-
+import shallowCompare from 'react-addons-shallow-compare';
 
 const MyComponent = React.createClass({
   shouldComponentUpdate(nextProps, nextState) {
     // With immutable objects, you only
-    // need to compare object references:
-    return this.props !== nextProps;
+    // need to compare objects shallowly:
+    return shallowCompare(this, nextProps, nextState);
   },
 
   ...

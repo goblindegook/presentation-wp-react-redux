@@ -299,7 +299,7 @@ export default class Presentation extends React.Component {
             <List>
               <ListItem>Multiple reducers allowed (and encouraged)</ListItem>
               <ListItem>Each reducer handles a different branch of app state</ListItem>
-              <ListItem>A <u>new</u> state object is created on update</ListItem>
+              <ListItem><u>New</u> state objects are created on update</ListItem>
               <ListItem>This matters because <u>determinism</u></ListItem>
             </List>
           </Slide>
@@ -349,7 +349,7 @@ export default class Presentation extends React.Component {
               <code>shouldComponentUpdate()</code>
             </Heading>
             <Heading size={1} caps fit>
-              Is Slow
+              Can Be Slow
             </Heading>
             <Heading size={2} fit>
               (Blame all the deep object comparisons.)
@@ -423,7 +423,7 @@ export default class Presentation extends React.Component {
               <Appear><ListItem>Mostly declarative, highly reusable components</ListItem></Appear>
               <Appear><ListItem>Rendering performance</ListItem></Appear>
               <Appear><ListItem>Porting to React Native is easy</ListItem></Appear>
-              <Appear><ListItem>Time travelling debugger!</ListItem></Appear>
+              <Appear><ListItem>Hot reloading and time-travelling debugger!</ListItem></Appear>
             </List>
           </Slide>
 
@@ -432,7 +432,7 @@ export default class Presentation extends React.Component {
               Cons
             </Heading>
             <List>
-              <Appear><ListItem>Complex ecosystem</ListItem></Appear>
+              <Appear><ListItem>Complex ecosystem, tons of modules</ListItem></Appear>
               <Appear><ListItem>Server-side rendering requires Node</ListItem></Appear>
               <Appear><ListItem>Most WordPress plugins won't work</ListItem></Appear>
               <Appear><ListItem>Bloaty inline styles (but you don't have to use them!)</ListItem></Appear>
