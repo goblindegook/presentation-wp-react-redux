@@ -6,7 +6,7 @@ const MyComponent = React.createClass({
     // With big state objects, performing
     // deep comparisons will slow you down:
     return deepEqual(this.props, nextProps);
-  },
+  }
 
   ...
 });

@@ -6,7 +6,7 @@ const MyComponent = React.createClass({
     // With immutable objects, you only
     // need to compare objects shallowly:
     return shallowCompare(this, nextProps, nextState);
-  },
+  }
 
   ...
 });

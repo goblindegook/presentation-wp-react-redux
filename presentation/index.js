@@ -4,8 +4,6 @@ import React from 'react';
 // Import Spectacle Core tags
 import {
   Appear,
-  BlockQuote,
-  Cite,
   CodePane,
   Deck,
   Fill,
@@ -15,7 +13,6 @@ import {
   Link,
   ListItem,
   List,
-  Quote,
   Slide,
   Spectacle,
   Text,
@@ -26,9 +23,6 @@ import preloader from 'spectacle/lib/utils/preloader';
 
 // Import theme
 import createTheme from 'spectacle/lib/themes/default';
-
-// Import custom component
-import Interactive from '../assets/interactive';
 
 // Require CSS
 require('normalize.css');
@@ -91,7 +85,7 @@ export default class Presentation extends React.Component {
 
           <Slide>
             {/*
-            <Image src={images.kat} margin='0 auto 40px' />
+              <Image src={images.kat} margin='0 auto 40px' />
             */}
             <Text>TODO: MV* example diagram</Text>
           </Slide>
@@ -104,12 +98,50 @@ export default class Presentation extends React.Component {
             <Text>TODO: Components</Text>
           </Slide>
 
-          <Slide>
-            <Text>TODO: Component Example</Text>
+          <Slide bgColor='secondary'>
+            <Heading size={5} textColor='primary' caps margin='0 auto 3rem'>
+              Component
+            </Heading>
+            <CodePane
+              lang='js'
+              source={require('raw!../assets/component.example')}
+              style={style.codePane}
+              textSize='1rem'
+            />
           </Slide>
 
           <Slide>
-            <Text>TODO: Component Lifecycle</Text>
+            <Heading size={4} caps>
+              Component Lifecycle
+            </Heading>
+            <Heading size={5} margin='2rem 0 0'>
+              Creation
+            </Heading>
+            <List>
+              <ListItem><code>componentWillMount</code></ListItem>
+              <ListItem><code>componentDidMount</code> (set timers, AJAX, etc.)</ListItem>
+            </List>
+            <Heading size={5} margin='2rem 0 0'>
+              Destruction
+            </Heading>
+            <List>
+              <ListItem><code>componentWillUnmount</code>  (unset timers, etc.)</ListItem>
+            </List>
+          </Slide>
+
+          <Slide>
+            <Heading size={4} caps>
+              Component Lifecycle
+            </Heading>
+            <Heading size={5} margin='2rem 0 0'>
+              Updates
+            </Heading>
+            <List>
+              <ListItem><code>componentWillReceiveProps</code></ListItem>
+              <ListItem><code>shouldComponentUpdate</code></ListItem>
+              <ListItem><code>componentWillUpdate</code></ListItem>
+              <ListItem><code>componentDidUpdate</code></ListItem>
+            </List>
           </Slide>
 
           <Slide>
@@ -129,7 +161,58 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide>
-            <Text>TODO: Smart Components vs Dumb Components</Text>
+            <Text>TODO: Container Components vs Presentational Components</Text>
+          </Slide>
+
+          <Slide>
+            <Heading size={4} caps>
+              "Smart" Container Components
+            </Heading>
+            <List>
+              <ListItem>Concerned with <u>how things work</u></ListItem>
+              <ListItem>Top-level, contain only other components...</ListItem>
+              <ListItem>...and usually render no markup themselves</ListItem>
+              <ListItem>Able to dispatch Redux actions directly</ListItem>
+              <ListItem>Provide data and callbacks to child components</ListItem>
+            </List>
+          </Slide>
+
+          <Slide bgColor='secondary'>
+            <Heading size={5} textColor='primary' caps margin='0 auto 3rem'>
+              "Smart" Container Component
+            </Heading>
+            <CodePane
+              lang='jsx'
+              source={require('raw!../assets/component-smart.example')}
+              style={style.codePane}
+              textSize='1rem'
+            />
+          </Slide>
+
+          <Slide>
+            <Heading size={4} caps>
+              "Dumb" Presentational Components
+            </Heading>
+            <List>
+              <ListItem>Concerned with <u>how things look</u></ListItem>
+              <ListItem>Best defined using functions</ListItem>
+              <ListItem>Rarely hold state or manipulate data</ListItem>
+              <ListItem>Independent from app architecture</ListItem>
+              <ListItem>Callbacks received via <code>props</code> if necessary</ListItem>
+              <ListItem>Allow containment with <code>props.children</code></ListItem>
+            </List>
+          </Slide>
+
+          <Slide bgColor='secondary'>
+            <Heading size={5} textColor='primary' caps margin='0 auto 3rem'>
+              "Dumb" Presentational Component
+            </Heading>
+            <CodePane
+              lang='jsx'
+              source={require('raw!../assets/component-dumb.example')}
+              style={style.codePane}
+              textSize='1rem'
+            />
           </Slide>
 
           <Slide>
@@ -210,7 +293,7 @@ export default class Presentation extends React.Component {
 
           <Slide bgColor='secondary'>
             <Heading size={5} textColor='primary' caps margin='0 auto 3rem'>
-              Example Thunk
+              Thunk
             </Heading>
             <CodePane
               lang='js'
@@ -228,7 +311,7 @@ export default class Presentation extends React.Component {
               <ListItem>Simple</ListItem>
               <ListItem>Imperative approach</ListItem>
               <ListItem>Components dispatch actions or thunks</ListItem>
-              <ListItem>No way to cancel side effects</ListItem>                  
+              <ListItem>No way to cancel side effects</ListItem>
             </List>
           </Slide>
 
@@ -246,7 +329,7 @@ export default class Presentation extends React.Component {
 
           <Slide bgColor='secondary'>
             <Heading size={5} textColor='primary' caps margin='0 auto 3rem'>
-              Example Saga
+              Saga
             </Heading>
             <CodePane
               lang='js'
@@ -263,7 +346,7 @@ export default class Presentation extends React.Component {
             <List>
               <ListItem>Rely on generators</ListItem>
               <ListItem>Declarative approach</ListItem>
-              <ListItem>Components only dispatch actions</ListItem>                  
+              <ListItem>Components only dispatch actions</ListItem>
               <ListItem>Side effect orchestration</ListItem>
             </List>
           </Slide>
@@ -282,7 +365,7 @@ export default class Presentation extends React.Component {
 
           <Slide bgColor='secondary'>
             <Heading size={5} textColor='primary' caps margin='0 auto 3rem'>
-              Example Reducer
+              Reducer
             </Heading>
             <CodePane
               lang='js'

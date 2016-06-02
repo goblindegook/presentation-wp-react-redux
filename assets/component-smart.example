@@ -1,0 +1,21 @@
+const HomePage = React.createComponent({
+  componentDidMount() {
+    this.props.dispatch(fetchPosts());
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return shallowCompare(this, nextProps, nextState);
+  }
+
+  render() {
+    return (
+      <Page>
+        <Title text="Hello, world!" />
+        <Search text={this.props.query}
+          onChange={query => this.props.dispatch(doSearch(query))}
+        />
+        <PostList items={this.props.posts} />
+      </Page>
+    );
+  }
+});
