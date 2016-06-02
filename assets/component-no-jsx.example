@@ -1,0 +1,18 @@
+const HomePage = React.createClass({
+  render() {
+    return React.createElement(
+      Page, null,
+      React.createElement(
+        Search, {
+          text:     this.props.query,
+          onChange: ...,
+        }
+      ),
+      React.createElement(
+        PostList, {
+          items: this.props.posts,
+        }
+      )
+    );
+  }
+});

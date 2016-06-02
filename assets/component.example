@@ -1,1 +1,12 @@
-TODO
+const HomePage = React.createClass({
+  render() {
+    return (
+      <Page>
+        <Title>Hello, world!</Title>
+        <Search text={this.props.query}
+          onChange={...} />
+        <PostList items={this.props.posts} />
+      </Page>
+    );
+  }
+});

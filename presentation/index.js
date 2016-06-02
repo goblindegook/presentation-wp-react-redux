@@ -103,7 +103,7 @@ export default class Presentation extends React.Component {
               Component
             </Heading>
             <CodePane
-              lang='js'
+              lang='jsx'
               source={require('raw!../assets/component.example')}
               style={style.codePane}
               textSize='1rem'
@@ -149,11 +149,59 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide>
-            <Text>TODO: But JSX is weird!</Text>
+            <Text>But JSX is weird!</Text>
+          </Slide>
+
+          <Slide bgColor='secondary'>
+            <Heading size={5} textColor='primary' caps margin='0 auto 3rem'>
+              JSX is Optional
+            </Heading>
+            <Layout>
+              <Fill>
+                <CodePane
+                  lang='jsx'
+                  source={require('raw!../assets/component.example')}
+                  style={style.codePane}
+                  textSize='1rem'
+                />
+              </Fill>
+              <Fill>
+                <CodePane
+                  lang='js'
+                  source={require('raw!../assets/component-no-jsx.example')}
+                  style={style.codePane}
+                  textSize='1rem'
+                />
+              </Fill>
+            </Layout>
           </Slide>
 
           <Slide>
-            <Text>TODO: But CSS in JS is weird!</Text>
+            <Text>But CSS in JS is weird!</Text>
+          </Slide>
+
+          <Slide bgColor='secondary'>
+            <Heading size={5} textColor='primary' caps margin='0 auto 3rem'>
+              CSS in JS is Optional
+            </Heading>
+            <Layout>
+              <Fill>
+                <CodePane
+                  lang='jsx'
+                  source={require('raw!../assets/component-styles-inline.example')}
+                  style={style.codePane}
+                  textSize='1rem'
+                />
+              </Fill>
+              <Fill>
+                <CodePane
+                  lang='jsx'
+                  source={require('raw!../assets/component-styles-module.example')}
+                  style={style.codePane}
+                  textSize='1rem'
+                />
+              </Fill>
+            </Layout>
           </Slide>
 
           <Slide>
@@ -161,7 +209,18 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide>
-            <Text>TODO: Container Components vs Presentational Components</Text>
+            <Heading size={2} caps fit>
+              Containers
+            </Heading>
+            <Heading size={1} caps>
+              vs.
+            </Heading>
+            <Heading size={2} caps fit>
+              Presentational
+            </Heading>
+            <Heading size={2} caps fit>
+              Components
+            </Heading>
           </Slide>
 
           <Slide>

@@ -1,4 +1,4 @@
-const HomePage = React.createComponent({
+const HomePage = React.createClass({
   componentDidMount() {
     this.props.dispatch(fetchPosts());
   }
@@ -10,7 +10,7 @@ const HomePage = React.createComponent({
   render() {
     return (
       <Page>
-        <Title text="Hello, world!" />
+        <Title>Hello, world!</Title>
         <Search text={this.props.query}
           onChange={query => this.props.dispatch(doSearch(query))}
         />
