@@ -29,10 +29,8 @@ require('normalize.css');
 require('spectacle/lib/themes/default/index.css');
 
 const images = {
-  city:     require('../assets/city.jpg').replace('/', ''),
-  kat:      require('../assets/kat.png').replace('/', ''),
-  logo:     require('../assets/formidable-logo.svg').replace('/', ''),
-  markdown: require('../assets/markdown.png').replace('/', ''),
+  mvvm:  require('../assets/mvvm.jpg').replace('/', ''),
+  redux: require('../assets/redux-flow.jpg').replace('/', ''),
 };
 
 preloader(images);
@@ -49,7 +47,7 @@ const theme = createTheme({
 });
 
 const style = {
-  codePane: {
+  code: {
     backgroundColor: '#333',
     display:         'inline-block',
     margin:          '0 auto',
@@ -71,7 +69,7 @@ export default class Presentation extends React.Component {
             <Heading size={1} fit>
               Using the WordPress REST API
             </Heading>
-            <Text size={1} fit textColor='secondary' textFont='secondary' textSize='1em' margin='4em 0em 0em'>WordPress Lisbon Meetup &middot; June 6, 2016</Text>
+            <Text size={1} fit textColor='secondary' textFont='secondary' textSize='1em' margin='4em 0em 0em'>Lisbon WordPress Meetup &middot; June 6, 2016</Text>
           </Slide>
 
           <Slide notes='The story up till now...'>
@@ -84,18 +82,28 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide>
-            {/*
-              <Image src={images.kat} margin='0 auto 40px' />
-            */}
-            <Text>TODO: MV* example diagram</Text>
+            <Image src={images.mvvm} margin='0 auto 40px' />
           </Slide>
 
           <Slide>
-            <Text>TODO: MV* issues at scale</Text>
+            <Heading size={1} caps fit>
+              React components
+            </Heading>
+            <Heading size={2} caps fit>
+              are <u>almost</u> like MV* views
+            </Heading>
           </Slide>
 
           <Slide>
-            <Text>TODO: Components</Text>
+            <Heading size={4} caps>
+              React Component Philosophy
+            </Heading>
+            <List>
+              <ListItem>Self-contained building blocks</ListItem>
+              <ListItem>Declarative approach</ListItem>
+              <ListItem>Components are affected only by their properties</ListItem>
+              <ListItem>Prevent unnecessary DOM updates</ListItem>
+            </List>
           </Slide>
 
           <Slide bgColor='secondary'>
@@ -105,9 +113,21 @@ export default class Presentation extends React.Component {
             <CodePane
               lang='jsx'
               source={require('raw!../assets/component.example')}
-              style={style.codePane}
+              style={style.code}
               textSize='1rem'
             />
+          </Slide>
+
+          <Slide>
+            <Heading size={4} caps>
+              <code>render()</code>
+            </Heading>
+            <List>
+              <ListItem>Does <u>not</u> return a string</ListItem>
+              <ListItem>Does <u>not</u> return a DOM node</ListItem>
+              <ListItem>Returns a lightweight Virtual DOM representation</ListItem>
+              <ListItem>Document updates only where the VDOM changes</ListItem>
+            </List>
           </Slide>
 
           <Slide>
@@ -145,10 +165,6 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide>
-            <Text>TODO: React components are roughly equivalent to views</Text>
-          </Slide>
-
-          <Slide>
             <Text>But JSX is weird!</Text>
           </Slide>
 
@@ -161,7 +177,7 @@ export default class Presentation extends React.Component {
                 <CodePane
                   lang='jsx'
                   source={require('raw!../assets/component.example')}
-                  style={style.codePane}
+                  style={style.code}
                   textSize='1rem'
                 />
               </Fill>
@@ -169,7 +185,7 @@ export default class Presentation extends React.Component {
                 <CodePane
                   lang='js'
                   source={require('raw!../assets/component-no-jsx.example')}
-                  style={style.codePane}
+                  style={style.code}
                   textSize='1rem'
                 />
               </Fill>
@@ -189,7 +205,7 @@ export default class Presentation extends React.Component {
                 <CodePane
                   lang='jsx'
                   source={require('raw!../assets/component-styles-inline.example')}
-                  style={style.codePane}
+                  style={style.code}
                   textSize='1rem'
                 />
               </Fill>
@@ -197,7 +213,7 @@ export default class Presentation extends React.Component {
                 <CodePane
                   lang='jsx'
                   source={require('raw!../assets/component-styles-module.example')}
-                  style={style.codePane}
+                  style={style.code}
                   textSize='1rem'
                 />
               </Fill>
@@ -205,7 +221,32 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide>
-            <Text>TODO: Redux</Text>
+            <Heading size={2} fit caps>
+              To split HTML, JS & CSS
+            </Heading>
+            <Heading size={2} fit caps>
+              in React is not separating
+            </Heading>
+            <Heading size={1} fit caps>
+              concerns
+            </Heading>
+            <Heading size={2} fit caps>
+              Only separating technologies.
+            </Heading>
+          </Slide>
+
+          <Slide>
+            <Image src={images.mvvm} />
+          </Slide>
+
+          <Slide>
+            <Text>TODO: MV* issues at scale</Text>
+          </Slide>
+
+          <Slide>
+            <Heading size={1} caps fit>
+              Redux
+            </Heading>
           </Slide>
 
           <Slide>
@@ -243,7 +284,7 @@ export default class Presentation extends React.Component {
             <CodePane
               lang='jsx'
               source={require('raw!../assets/component-smart.example')}
-              style={style.codePane}
+              style={style.code}
               textSize='1rem'
             />
           </Slide>
@@ -269,7 +310,7 @@ export default class Presentation extends React.Component {
             <CodePane
               lang='jsx'
               source={require('raw!../assets/component-dumb.example')}
-              style={style.codePane}
+              style={style.code}
               textSize='1rem'
             />
           </Slide>
@@ -295,7 +336,7 @@ export default class Presentation extends React.Component {
                 <CodePane
                   lang='js'
                   source={require('raw!../assets/action-success.example')}
-                  style={style.codePane}
+                  style={style.code}
                   textSize='1rem'
                 />
               </Fill>
@@ -303,7 +344,7 @@ export default class Presentation extends React.Component {
                 <CodePane
                   lang='js'
                   source={require('raw!../assets/action-error.example')}
-                  style={style.codePane}
+                  style={style.code}
                   textSize='1rem'
                 />
               </Fill>
@@ -319,7 +360,7 @@ export default class Presentation extends React.Component {
                 <CodePane
                   lang='js'
                   source={require('raw!../assets/action-creator-success.example')}
-                  style={style.codePane}
+                  style={style.code}
                   textSize='1rem'
                 />
               </Fill>
@@ -327,7 +368,7 @@ export default class Presentation extends React.Component {
                 <CodePane
                   lang='js'
                   source={require('raw!../assets/action-creator-error.example')}
-                  style={style.codePane}
+                  style={style.code}
                   textSize='1rem'
                 />
               </Fill>
@@ -357,7 +398,7 @@ export default class Presentation extends React.Component {
             <CodePane
               lang='js'
               source={require('raw!../assets/redux-thunk.example')}
-              style={style.codePane}
+              style={style.code}
               textSize='1rem'
             />
           </Slide>
@@ -393,7 +434,7 @@ export default class Presentation extends React.Component {
             <CodePane
               lang='js'
               source={require('raw!../assets/redux-saga.example')}
-              style={style.codePane}
+              style={style.code}
               textSize='1rem'
             />
           </Slide>
@@ -429,7 +470,7 @@ export default class Presentation extends React.Component {
             <CodePane
               lang='js'
               source={require('raw!../assets/reducer.example')}
-              style={style.codePane}
+              style={style.code}
               textSize='1rem'
             />
           </Slide>
@@ -484,6 +525,10 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide>
+            <Image src={images.redux} />
+          </Slide>
+
+          <Slide>
             <Text>Problem</Text>
           </Slide>
 
@@ -521,7 +566,7 @@ export default class Presentation extends React.Component {
                 <CodePane
                   lang='js'
                   source={require('raw!../assets/immutable-before.example')}
-                  style={style.codePane}
+                  style={style.code}
                   textSize='1rem'
                 />
               </Fill>
@@ -532,7 +577,7 @@ export default class Presentation extends React.Component {
                 <CodePane
                   lang='js'
                   source={require('raw!../assets/immutable-after.example')}
-                  style={style.codePane}
+                  style={style.code}
                   textSize='1rem'
                 />
               </Fill>
