@@ -29,8 +29,9 @@ require('normalize.css');
 require('spectacle/lib/themes/default/index.css');
 
 const images = {
-  mvvm:  require('../assets/mvvm.jpg').replace('/', ''),
-  redux: require('../assets/redux-flow.jpg').replace('/', ''),
+  mvvm:      require('../assets/mvvm.png').replace('/', ''),
+  redux:     require('../assets/redux-flow.png').replace('/', ''),
+  spaghetti: require('../assets/spaghetti.jpg').replace('/', ''),
 };
 
 preloader(images);
@@ -54,6 +55,10 @@ const style = {
     maxWidth:        'inherit',
     minWidth:        'inherit',
   },
+  image: {
+    maxHeight: '80%',
+    maxWidth:  '80%',
+  }
 };
 
 export default class Presentation extends React.Component {
@@ -82,7 +87,7 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide>
-            <Image src={images.mvvm} margin='0 auto 40px' />
+            <Image src={images.mvvm} style={style.image} />
           </Slide>
 
           <Slide>
@@ -236,17 +241,19 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide>
-            <Image src={images.mvvm} />
+            <Image src={images.mvvm} style={style.image} />
           </Slide>
 
-          <Slide>
-            <Text>TODO: MV* issues at scale</Text>
-          </Slide>
+          <Slide bgImage={images.spaghetti} bgDarken={0} />
 
           <Slide>
             <Heading size={1} caps fit>
               Redux
             </Heading>
+          </Slide>
+
+          <Slide>
+            <Image src={images.redux} style={style.image} />
           </Slide>
 
           <Slide>
@@ -525,7 +532,7 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide>
-            <Image src={images.redux} />
+            <Image src={images.redux} style={style.image} />
           </Slide>
 
           <Slide>
@@ -636,35 +643,6 @@ export default class Presentation extends React.Component {
               <Link href='https://goblindegook.com/'>goblindegook.com</Link>
             </Text>
           </Slide>
-
-          {/*
-
-          <Slide bgImage={images.city} bgDarken={0.50}>
-            <Appear fid='1'>
-              <Heading size={1} caps fit textColor='primary'>
-                Full Width
-              </Heading>
-            </Appear>
-            <Appear fid='2'>
-              <Heading size={1} caps fit textColor='tertiary'>
-                Adjustable Darkness
-              </Heading>
-            </Appear>
-            <Appear fid='3'>
-              <Heading size={1} caps fit textColor='primary'>
-                Background Imagery
-              </Heading>
-            </Appear>
-          </Slide>
-
-          <Slide>
-            <Heading size={1} caps fit textColor='tertiary'>
-              Your presentations are interactive
-            </Heading>
-            <Interactive/>
-          </Slide>
-
-          */}
 
         </Deck>
       </Spectacle>
